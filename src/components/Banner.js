@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const Banner = () => {
+const Banner = ({ message }) => {
   return (
     <BannerContainer className="notification">
       <Text className="notification__message">
-        Some banner about a promotion for a discount -{' '}
-        <strong>Click here</strong>
+        {message} -{' '}
+        <strong>
+          <LinkText to="/">こちらをクリック</LinkText>
+        </strong>
       </Text>
     </BannerContainer>
   );
@@ -23,4 +26,9 @@ const Text = styled.p`
   color: #fafafa;
   text-align: center;
   padding: 10px 0;
+`;
+
+const LinkText = styled(Link)`
+  color: #fafafa;
+  text-decoration: underline;
 `;

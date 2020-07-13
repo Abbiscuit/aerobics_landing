@@ -1,23 +1,35 @@
 import React from 'react';
 import Header from './components/Header';
-import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import Banner from './components/Banner';
-import HeaderLogoBar from './components/HeaderLogoBar';
-import Menu from './components/Menu';
 import Home from './pages/Home';
+import Admin from './pages/Admin';
+import { Switch, Route } from 'react-router-dom';
+import Frame from './components/layouts/Frame';
 
 function App() {
+  const message =
+    '夏本番間近！！24時間限定ディスカウントクーポンで最大50%オフ！';
+
   return (
     <div className="App">
       <Header />
       <Container>
-        <Banner />
-        <HeaderLogoBar />
-        <Menu />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/about" component={About} />
+          <Route
+            exact
+            path="/"
+            render={props => {
+              return <Home {...props} message={message} />;
+            }}
+          />
+          <Route exact path="/about" render={props => <About {...props} />} />
+          <Route
+            exact
+            path="/admin"
+            render={props => {
+              return <Admin {...props} />;
+            }}
+          />
         </Switch>
       </Container>
     </div>
@@ -26,9 +38,9 @@ function App() {
 
 /* Temporary (remove later 👇) */
 const About = () => (
-  <div>
+  <Frame>
     <h1>About</h1>
-  </div>
+  </Frame>
 );
 
 export default App;

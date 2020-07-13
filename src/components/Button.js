@@ -2,20 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Button = ({ children, to, center, shadow }) => {
+const Button = ({ children, to, center, shadow, top, bottom }) => {
   return (
-    <Container center={center} shadow={shadow}>
-      <ButtonLink to={to}>{children}</ButtonLink>
+    <Container
+      center={center}
+      shadow={shadow}
+      to={to}
+      top={top}
+      bottom={bottom}
+    >
+      <ButtonLink>{children}</ButtonLink>
     </Container>
   );
 };
 
 export default Button;
 
-const Container = styled.div`
+const Container = styled(Link)`
   margin: ${props => (props.center ? '0 auto' : 'none')};
+  margin-top: ${props => `${props.top}px` || '0px'};
+  margin-bottom: ${props => props.bottom || '0px'};
   background-color: #0d88bc;
-  width: 234px;
+  max-width: 234px;
+  width: 100%;
   height: 48px;
   display: flex;
   align-items: center;
@@ -30,6 +39,6 @@ const Container = styled.div`
   }
 `;
 
-const ButtonLink = styled(Link)`
+const ButtonLink = styled.p`
   color: #fafafa;
 `;

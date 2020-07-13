@@ -3,37 +3,40 @@ import styled from 'styled-components';
 import Button from '../components/Button';
 import CardCollection from '../components/CardCollection';
 import Footer from '../components/Footer';
+import Frame from '../components/layouts/Frame';
 
-const Home = () => {
+const Home = ({ message }) => {
   return (
-    <Container>
-      <HeroCoverContainer>
-        <InnerContainer>
-          <Title>Title Tagline and Stuff</Title>
-          <Text>
-            Subtitle details and product description about image or product
-          </Text>
-          <Button to="/about" shadow>
-            Shop Collection
-          </Button>
-        </InnerContainer>
-      </HeroCoverContainer>
-      <CardsContainer>
-        <CardText>Popular Categories</CardText>
-        <CardCollection />
-        <Button center>View all categories</Button>
-      </CardsContainer>
-      <CardsContainer white>
-        <CardText>New Arraivals</CardText>
-        <CardCollection />
-      </CardsContainer>
-      <CardsContainer dark>
-        <CardText white>Popular Categories</CardText>
-        <CardCollection />
-        <Button center>View all categories</Button>
-      </CardsContainer>
-      <Footer />
-    </Container>
+    <Frame message={message}>
+      <Container>
+        <HeroCoverContainer>
+          <InnerContainer>
+            <Title>Title Tagline and Stuff</Title>
+            <Text>
+              Subtitle details and product description about image or product
+            </Text>
+            <Button to="/about" shadow>
+              商品一覧へ
+            </Button>
+          </InnerContainer>
+        </HeroCoverContainer>
+        <CardsContainer>
+          <CardText>Popular Categories</CardText>
+          <CardCollection />
+          <Button center>カテゴリ一覧</Button>
+        </CardsContainer>
+        <CardsContainer white>
+          <CardText>New Arraivals</CardText>
+          <CardCollection />
+        </CardsContainer>
+        <CardsContainer dark>
+          <CardText white>Popular Categories</CardText>
+          <CardCollection />
+          <Button center>View all categories</Button>
+        </CardsContainer>
+        <Footer />
+      </Container>
+    </Frame>
   );
 };
 
