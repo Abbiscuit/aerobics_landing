@@ -17,7 +17,7 @@ const Admin = () => {
 
   return (
     <div>
-      <Section dashed>
+      <Section dashed="true">
         <Title>Welcome back, Owner!</Title>
       </Section>
       <Section bgColor={'salmon'}>

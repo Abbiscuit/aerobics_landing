@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <HeaderTitle to="/">FITMA</HeaderTitle>
-      <HeaderLogin to="/admin">Login</HeaderLogin>
+      {/* <HeaderLogin to="/admin">Login</HeaderLogin> */}
     </HeaderContainer>
   );
 };
@@ -26,6 +26,6 @@ const HeaderTitle = styled(Link)`
   color: #fff;
 `;
 
-const HeaderLogin = styled(Link)`
-  color: #fff;
-`;
+// const HeaderLogin = styled(Link)`
+//   color: #fff;
+// `;

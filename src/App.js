@@ -3,10 +3,13 @@ import Header from './components/Header';
 import styled from 'styled-components';
 import Home from './pages/Home';
 import Admin from './pages/Admin';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Frame from './components/layouts/Frame';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 function App() {
+  const [currentUser, setCurrentUser] = React.useState('user');
   const message =
     '夏本番間近！！24時間限定ディスカウントクーポンで最大50%オフ！';
 
@@ -27,9 +30,15 @@ function App() {
             exact
             path="/admin"
             render={props => {
-              return <Admin {...props} />;
+              return currentUser ? (
+                <Admin {...props} />
+              ) : (
+                <Redirect to="/admin-login" />
+              );
             }}
           />
+          <Route exact path="/admin-login" component={Login} />
+          <Route exact path="/admin-signup" component={Signup} />
         </Switch>
       </Container>
     </div>
