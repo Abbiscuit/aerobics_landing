@@ -15,7 +15,7 @@ const Home = ({ message }) => {
             <Text>
               Subtitle details and product description about image or product
             </Text>
-            <Button to="/about" shadow>
+            <Button to="/about" shadow="true">
               商品一覧へ
             </Button>
           </InnerContainer>
@@ -23,7 +23,9 @@ const Home = ({ message }) => {
         <CardsContainer>
           <CardText>Popular Categories</CardText>
           <CardCollection />
-          <Button center>カテゴリ一覧</Button>
+          <Button to={'/'} center="true">
+            カテゴリ一覧
+          </Button>
         </CardsContainer>
         <CardsContainer white>
           <CardText>New Arraivals</CardText>
@@ -32,7 +34,9 @@ const Home = ({ message }) => {
         <CardsContainer dark>
           <CardText white>Popular Categories</CardText>
           <CardCollection />
-          <Button center>View all categories</Button>
+          <Button to={'/'} center="true">
+            View all categories
+          </Button>
         </CardsContainer>
         <Footer />
       </Container>

@@ -1,13 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Button = ({ children, to, center, shadow, top, bottom }) => {
+const OutsideLink = ({ children, href, center, shadow, top, bottom }) => {
   return (
     <Container
       center={center}
       shadow={shadow}
-      to={to}
+      href={href}
       top={top}
       bottom={bottom}
     >
@@ -16,9 +15,9 @@ const Button = ({ children, to, center, shadow, top, bottom }) => {
   );
 };
 
-export default Button;
+export default OutsideLink;
 
-const Container = styled(Link)`
+const Container = styled.a`
   margin: ${props => (props.center ? '0 auto' : 'none')};
   margin-top: ${props => `${props.top}px` || '0px'};
   margin-bottom: ${props => props.bottom || '0px'};
@@ -30,7 +29,7 @@ const Container = styled(Link)`
   align-items: center;
   justify-content: center;
   box-shadow: ${props =>
-    props.shadow ? '0 4px 4px rgba(0, 0, 0, 0.1);' : '0px'};
+    props.shadow ? '0 4px 4px rgba(0, 0, 0, 0.1);' : 'none'};
   box-shadow: ${props =>
     props.shadow ? '0 16px 40px rgba(0, 0, 0, 0.4);' : 'none'};
 

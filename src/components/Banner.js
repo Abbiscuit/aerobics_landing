@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const Banner = ({ message }) => {
+const Banner = ({ message, to }) => {
   return (
     <BannerContainer className="notification">
       <Text className="notification__message">
         {message} -{' '}
         <strong>
-          <LinkText to="/">こちらをクリック</LinkText>
+          <LinkText to={to ? to : '#'}>こちらをクリック</LinkText>
         </strong>
       </Text>
     </BannerContainer>

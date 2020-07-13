@@ -2,8 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../components/Button';
 import { Link } from 'react-router-dom';
+import Banner from '../components/Banner';
+import OutsideLink from '../components/OutsideLink';
 
 const Admin = () => {
+  const [preview, setPreview] = React.useState({
+    content: '',
+    rate: '',
+  });
+
+  const handleChange = e => {
+    setPreview({ ...preview, [e.target.name]: e.target.value });
+  };
+
   return (
     <div>
       <Section dashed>
@@ -15,146 +26,48 @@ const Admin = () => {
         </p>
       </Section>
       <Section>
-        <h3>プロモーション設定</h3>
-        {/* <form
-          onSubmit={e => {
-            e.preventDefault();
-            message = 'submitted';
-            console.log(message);
-          }}
-        >
-          <input type="text" onChange={e => console.log(e.target.value)} />
-          <button type="submit">申請</button>
-        </form> */}
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis
-          necessitatibus natus fugit dolorem vitae? Quas voluptas ipsa beatae
-          eligendi, deserunt optio iusto ut adipisci odit a mollitia ex harum
-          voluptatibus. Sapiente autem corporis pariatur! Tempora, dolore.
-          Fugit, est. Earum, nemo, ipsa nesciunt ratione eos beatae distinctio
-          voluptatibus fugiat aperiam tempora debitis ipsam quibusdam doloribus,
-          culpa voluptates cupiditate eveniet. Eius, soluta? Beatae
-          necessitatibus sint sapiente, nulla impedit neque explicabo
-          reprehenderit temporibus perferendis aut qui sequi quo cumque
-          veritatis earum aperiam saepe vitae minima corrupti dolores amet
-          omnis. Totam facilis officia debitis. Ipsum cumque, rerum doloremque
-          dolore optio iure aspernatur exercitationem laboriosam? Placeat
-          dignissimos iure eveniet eaque expedita soluta et quo neque veritatis
-          aspernatur culpa, labore odit? Accusamus ipsum sit reiciendis quod?
-          Quam, cum adipisci. Ea recusandae consectetur possimus nemo facere
-          debitis officiis ut natus illo! Repellat praesentium eum molestias,
-          illo laborum, ipsam ex ab impedit obcaecati omnis a quasi possimus
-          animi. Voluptate, commodi. Quis maiores animi expedita autem
-          necessitatibus quos ipsa illum repudiandae sit velit corrupti
-          consectetur ad totam, repellat, repellendus minima impedit rerum
-          provident hic harum alias. Accusantium, reprehenderit autem. Quasi,
-          hic ipsum explicabo mollitia rerum, eaque velit quis porro qui
-          nesciunt cupiditate voluptates dolore. Odit possimus ipsa eos
-          temporibus distinctio, tempora quos deserunt similique error
-          voluptates. Pariatur, laboriosam totam. Illum error culpa minima
-          architecto dolor possimus dignissimos. Esse, sapiente dolores. Nostrum
-          non at doloremque molestias nemo ullam. Deleniti, corporis dolores
-          omnis nemo molestiae nobis obcaecati repudiandae facere quaerat
-          delectus? Exercitationem minima, voluptate quasi rerum explicabo et
-          dignissimos, velit numquam quae deleniti repudiandae hic earum
-          molestiae libero sunt nam perspiciatis fuga? Facilis doloribus
-          laudantium debitis voluptate. Et aut quas neque. Ab, totam
-          reprehenderit. Corporis inventore perspiciatis cum nam nobis! Sequi
-          deserunt quisquam neque fuga magni tempore quasi placeat blanditiis,
-          maiores, ipsa quibusdam vitae dolore repellendus iure laudantium
-          provident reiciendis incidunt.
-        </p>
+        <SubTitle bottom={16}>プロモーション設定</SubTitle>
+        <Label htmlFor="content">内容 </Label>
+        <Input
+          type="text"
+          name="content"
+          value={preview.content}
+          onChange={handleChange}
+          bottom={16}
+        />
+
+        {preview.content ? (
+          <React.Fragment>
+            <p>プレビュー（下記のように表示されます）</p>
+            <Banner message={preview.content} to={'/admin'} />
+          </React.Fragment>
+        ) : null}
+
         <Button to="admin-settings" top={16}>
           設定
         </Button>
       </Section>
       <Section>
-        <h3>ユーザー管理</h3>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis
-          necessitatibus natus fugit dolorem vitae? Quas voluptas ipsa beatae
-          eligendi, deserunt optio iusto ut adipisci odit a mollitia ex harum
-          voluptatibus. Sapiente autem corporis pariatur! Tempora, dolore.
-          Fugit, est. Earum, nemo, ipsa nesciunt ratione eos beatae distinctio
-          voluptatibus fugiat aperiam tempora debitis ipsam quibusdam doloribus,
-          culpa voluptates cupiditate eveniet. Eius, soluta? Beatae
-          necessitatibus sint sapiente, nulla impedit neque explicabo
-          reprehenderit temporibus perferendis aut qui sequi quo cumque
-          veritatis earum aperiam saepe vitae minima corrupti dolores amet
-          omnis. Totam facilis officia debitis. Ipsum cumque, rerum doloremque
-          dolore optio iure aspernatur exercitationem laboriosam? Placeat
-          dignissimos iure eveniet eaque expedita soluta et quo neque veritatis
-          aspernatur culpa, labore odit? Accusamus ipsum sit reiciendis quod?
-          Quam, cum adipisci. Ea recusandae consectetur possimus nemo facere
-          debitis officiis ut natus illo! Repellat praesentium eum molestias,
-          illo laborum, ipsam ex ab impedit obcaecati omnis a quasi possimus
-          animi. Voluptate, commodi. Quis maiores animi expedita autem
-          necessitatibus quos ipsa illum repudiandae sit velit corrupti
-          consectetur ad totam, repellat, repellendus minima impedit rerum
-          provident hic harum alias. Accusantium, reprehenderit autem. Quasi,
-          hic ipsum explicabo mollitia rerum, eaque velit quis porro qui
-          nesciunt cupiditate voluptates dolore. Odit possimus ipsa eos
-          temporibus distinctio, tempora quos deserunt similique error
-          voluptates. Pariatur, laboriosam totam. Illum error culpa minima
-          architecto dolor possimus dignissimos. Esse, sapiente dolores. Nostrum
-          non at doloremque molestias nemo ullam. Deleniti, corporis dolores
-          omnis nemo molestiae nobis obcaecati repudiandae facere quaerat
-          delectus? Exercitationem minima, voluptate quasi rerum explicabo et
-          dignissimos, velit numquam quae deleniti repudiandae hic earum
-          molestiae libero sunt nam perspiciatis fuga? Facilis doloribus
-          laudantium debitis voluptate. Et aut quas neque. Ab, totam
-          reprehenderit. Corporis inventore perspiciatis cum nam nobis! Sequi
-          deserunt quisquam neque fuga magni tempore quasi placeat blanditiis,
-          maiores, ipsa quibusdam vitae dolore repellendus iure laudantium
-          provident reiciendis incidunt.
-        </p>
+        <SubTitle bottom={16}>ユーザー管理</SubTitle>
+        <Section dashed bgColor={'#fafafa'}>
+          <p>鈴木健太</p>
+        </Section>
+        <Section dashed bgColor={'#fafafa'}>
+          <p>斎藤彩香</p>
+        </Section>
+        <Section dashed bgColor={'#fafafa'}>
+          <p>藤井恵奈</p>
+        </Section>
         <Button to="admin-settings" top={16}>
-          設定
+          ユーザー一覧
         </Button>
       </Section>
       <Section>
-        <h3>決済管理</h3>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis
-          necessitatibus natus fugit dolorem vitae? Quas voluptas ipsa beatae
-          eligendi, deserunt optio iusto ut adipisci odit a mollitia ex harum
-          voluptatibus. Sapiente autem corporis pariatur! Tempora, dolore.
-          Fugit, est. Earum, nemo, ipsa nesciunt ratione eos beatae distinctio
-          voluptatibus fugiat aperiam tempora debitis ipsam quibusdam doloribus,
-          culpa voluptates cupiditate eveniet. Eius, soluta? Beatae
-          necessitatibus sint sapiente, nulla impedit neque explicabo
-          reprehenderit temporibus perferendis aut qui sequi quo cumque
-          veritatis earum aperiam saepe vitae minima corrupti dolores amet
-          omnis. Totam facilis officia debitis. Ipsum cumque, rerum doloremque
-          dolore optio iure aspernatur exercitationem laboriosam? Placeat
-          dignissimos iure eveniet eaque expedita soluta et quo neque veritatis
-          aspernatur culpa, labore odit? Accusamus ipsum sit reiciendis quod?
-          Quam, cum adipisci. Ea recusandae consectetur possimus nemo facere
-          debitis officiis ut natus illo! Repellat praesentium eum molestias,
-          illo laborum, ipsam ex ab impedit obcaecati omnis a quasi possimus
-          animi. Voluptate, commodi. Quis maiores animi expedita autem
-          necessitatibus quos ipsa illum repudiandae sit velit corrupti
-          consectetur ad totam, repellat, repellendus minima impedit rerum
-          provident hic harum alias. Accusantium, reprehenderit autem. Quasi,
-          hic ipsum explicabo mollitia rerum, eaque velit quis porro qui
-          nesciunt cupiditate voluptates dolore. Odit possimus ipsa eos
-          temporibus distinctio, tempora quos deserunt similique error
-          voluptates. Pariatur, laboriosam totam. Illum error culpa minima
-          architecto dolor possimus dignissimos. Esse, sapiente dolores. Nostrum
-          non at doloremque molestias nemo ullam. Deleniti, corporis dolores
-          omnis nemo molestiae nobis obcaecati repudiandae facere quaerat
-          delectus? Exercitationem minima, voluptate quasi rerum explicabo et
-          dignissimos, velit numquam quae deleniti repudiandae hic earum
-          molestiae libero sunt nam perspiciatis fuga? Facilis doloribus
-          laudantium debitis voluptate. Et aut quas neque. Ab, totam
-          reprehenderit. Corporis inventore perspiciatis cum nam nobis! Sequi
-          deserunt quisquam neque fuga magni tempore quasi placeat blanditiis,
-          maiores, ipsa quibusdam vitae dolore repellendus iure laudantium
-          provident reiciendis incidunt.
-        </p>
-        <Button to="admin-settings" top={16}>
-          設定
-        </Button>
+        <SubTitle>決済管理</SubTitle>
+        <p></p>
+        <OutsideLink href={'https://stripe.com/jp'} top={16}>
+          Stripe管理画面
+        </OutsideLink>
       </Section>
     </div>
   );
@@ -173,8 +86,29 @@ const Section = styled.section`
 const Title = styled.h1`
   font-size: 24px;
   line-height: 1;
+  margin-bottom: ${props => `${props.bottom}px` || '0'};
+  color: #222;
 `;
 
 const Span = styled(Link)`
   font-size: 120%;
+`;
+
+const SubTitle = styled.h3`
+  font-size: 16px;
+  margin-bottom: ${props => `${props.bottom}px` || '0'};
+  color: #222;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  padding: 0 8px;
+  margin-bottom: ${props => `${props.bottom}px` || '0'};
+  color: #222;
+`;
+
+const Label = styled.label`
+  color: #222;
 `;

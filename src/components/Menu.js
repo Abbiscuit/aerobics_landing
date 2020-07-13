@@ -6,15 +6,15 @@ const Menu = () => {
   return (
     <Container>
       <InnerContainer>
-        <MenuItem>New Arrivals</MenuItem>
-        <MenuItem>Women</MenuItem>
-        <MenuItem>Men</MenuItem>
-        <MenuItem>Tops</MenuItem>
-        <MenuItem>Bottoms</MenuItem>
-        <MenuItem>Outerwear</MenuItem>
-        <MenuItem>Swim</MenuItem>
-        <MenuItem>Footwear</MenuItem>
-        <MenuItem>Sale</MenuItem>
+        <MenuItem to="/">New Arrivals</MenuItem>
+        <MenuItem to="/">Women</MenuItem>
+        <MenuItem to="/">Men</MenuItem>
+        <MenuItem to="/">Tops</MenuItem>
+        <MenuItem to="/">Bottoms</MenuItem>
+        <MenuItem to="/">Outerwear</MenuItem>
+        <MenuItem to="/">Swim</MenuItem>
+        <MenuItem to="/">Footwear</MenuItem>
+        <MenuItem to="/">Sale</MenuItem>
       </InnerContainer>
     </Container>
   );
