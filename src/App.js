@@ -7,6 +7,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Frame from './components/layouts/Frame';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import About from './pages/About';
 
 function App() {
   const [currentUser, setCurrentUser] = React.useState('user');
@@ -44,13 +45,6 @@ function App() {
     </div>
   );
 }
-
-/* Temporary (remove later 👇) */
-const About = () => (
-  <Frame>
-    <h1>About</h1>
-  </Frame>
-);
 
 export default App;
 

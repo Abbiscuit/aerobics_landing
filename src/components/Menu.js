@@ -23,6 +23,7 @@ const Menu = () => {
 export default Menu;
 
 const Container = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   height: 60px;
@@ -32,7 +33,7 @@ const Container = styled.div`
 `;
 
 const InnerContainer = styled.div`
-  width: 910px;
+  max-width: 910px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
