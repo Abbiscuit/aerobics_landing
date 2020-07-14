@@ -26,7 +26,11 @@ function App() {
               return <Home {...props} message={message} />;
             }}
           />
-          <Route exact path="/about" render={props => <About {...props} />} />
+          <Route
+            exact
+            path="/about"
+            render={props => <About {...props} message={message} />}
+          />
           <Route
             exact
             path="/admin"
